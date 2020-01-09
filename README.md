@@ -15,17 +15,13 @@ default settings for HLS live streaming. Built on Alpine Linux.
 ## Usage
 
 ### Server
-* Pull docker image and run:
-```
-docker pull alfg/nginx-rtmp
-docker run -it -p 1935:1935 -p 8080:80 --rm alfg/nginx-rtmp
-```
-or 
 
 * Build and run container from source:
 ```
 docker build -t nginx-rtmp .
 docker run -it -p 1935:1935 -p 8080:80 --rm nginx-rtmp
+or to use local files:
+docker run -p 8080:80 -p 1935:1935 -v /private/nginx/log/ooftv-docker:/var/log -v /private/www/html:/usr/local/nginx/html --name test ooftv-docker-ngin
 ```
 
 * Stream live content to:
@@ -33,7 +29,7 @@ docker run -it -p 1935:1935 -p 8080:80 --rm nginx-rtmp
 rtmp://<server ip>:1935/stream/$STREAM_NAME
 ```
 
-### SSL 
+### SSL
 To enable SSL, see [nginx.conf](nginx.conf) and uncomment the lines:
 ```
 listen 443 ssl;
