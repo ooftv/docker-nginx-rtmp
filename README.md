@@ -18,13 +18,21 @@ default settings for HLS live streaming. Built on Alpine Linux.
 
 * Build and run container from source:
 ```
-docker build -t nginx-rtmp .
+docker build -t ooftv-nginx-rtmp .
 docker run -it -p 1935:1935 -p 8080:80 --rm nginx-rtmp
 or to use local files:
-docker run -p 8080:80 -p 1935:1935 -v /private/nginx/log/ooftv-docker:/var/log -v /private/www/html:/usr/local/nginx/html --name test ooftv-docker-nginx-rtmp
+docker run -p 8080:80 -p 1935:1935 -v /private/nginx/log/ooftv-docker:/var/log -v /private/www/html:/usr/local/nginx/html --name ooftv ooftv-docker-nginx-rtmp
 
 (note: it's /private/nginx because (I think) it won't have the correct privileges for /var/log
 )```
+
+* if you made changes to the docker image and need to rebuild it:
+docker stop ooftv
+(unless you named it something else, find out with docker ps)
+then:
+docker build -t ooftv-nginx-rtmp .
+then run it again with the above docker run command
+
 
 * Stream live content to:
 ```
