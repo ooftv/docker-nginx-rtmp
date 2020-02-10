@@ -28,6 +28,10 @@ RUN apk add --update \
   pkgconfig \
   zlib-dev
 
+# Set the time server
+RUN apk add --no-cache tzdata
+ENV TZ America/Los_Angeles
+
 # Get nginx source.
 RUN cd /tmp && \
   wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
