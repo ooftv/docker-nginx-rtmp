@@ -1,0 +1,2 @@
+docker build -t ooftv-nginx-rtmp .
+docker run -p 8080:80 -p 1935:1935 -v /var/log/ooftv-docker:/var/log -v /var/www/html:/usr/local/nginx/html -d --name ooftv ooftv-nginx-rtmp

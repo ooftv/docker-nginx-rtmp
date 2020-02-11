@@ -157,5 +157,6 @@ ADD static /www/static
 
 EXPOSE 1935
 EXPOSE 80
+EXPOSE 443
 
 CMD ["nginx"]
