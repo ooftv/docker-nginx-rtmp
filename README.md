@@ -109,7 +109,17 @@ ffmpeg version 4.2.1 Copyright (c) 2000-2019 the FFmpeg developers
     --disable-doc
     --disable-ffplay
     --extra-libs='-lpthread -lm'
-```
+``
+
+AWSTATS
+Configure AWSTATS
+Don't forget to configure nginx's logrotate:
+vim /etc/logrotate.d/nginx
+you'll need to set it to the right path for the logs
+
+Then test it
+sudo logrotate -f /etc/logrotate.d/nginx
+`
 
 ## Resources
 * https://alpinelinux.org/
