@@ -22,6 +22,8 @@ docker build -t ooftv-nginx-rtmp .
 docker run -it -p 1935:1935 -p 8080:80 --rm nginx-rtmp
 or to use local files:
 docker run -p 8080:80 -p 1935:1935 -v /var/log/ooftv-docker:/var/log -v /var/www/html:/usr/local/nginx/html -d --name ooftv ooftv-nginx-rtmp
+with ssl
+docker run -p 8080:80 -p 443:443 -p 1935:1935 -v /var/log/ooftv-docker:/var/log -v /var/www/html:/usr/local/nginx/html -v /etc/letsencrypt:/opt/certs -d --name ooftv ooftv-nginx-rtmp
 ```
 (note, the only thing we use local storage for is the html files and the logs. the conf and everything else is inside the docker container)
 Current preferred method for running this image:
