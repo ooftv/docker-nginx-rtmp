@@ -27,8 +27,9 @@ docker run -p 8080:80 -p 443:443 -p 1935:1935 -v /var/log/ooftv-docker:/var/log 
 ```
 (note, the only thing we use local storage for is the html files and the logs. the conf and everything else is inside the docker container)
 Current preferred method for running this image:
+```
 docker run -p 8080:80 -p 443:443 -p 1935:1935 -v /home/ooftv/Documents/github/ooftv-docker-nginx-rtmp/nginx.conf:/etc/nginx/nginx.conf:ro -v /var/log/ooftv-docker:/var/log -v /var/www/html:/usr/local/nginx/html -v  /etc/letsencrypt:/opt/certs -d --name ooftv ooftv-nginx-rtmp
-
+```
 however, ports and volumes should be set up in docker-compose.yaml (Still need to do that)
 * if you made changes to the docker image and need to rebuild it:
 docker stop ooftv
