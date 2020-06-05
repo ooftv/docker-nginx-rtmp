@@ -1,4 +1,11 @@
-docker build -t ooftv-stream .
+
+one-liner:
+docker build -t ooftv-stream . && docker start ooftv
+
+or if it's already built, 
+docker start ooftv
+
+
 docker run -p 8080:80 -p 443:443 -p 1935:1935 -v /home/ooftv/Documents/github/ooftv-docker-nginx-rtmp/nginx.conf:/etc/nginx/nginx.conf:ro -v /var/log/ooftv-docker:/var/log -v /var/www/html:/usr/local/nginx/html -v  /etc/letsencrypt:/opt/certs -d --name ooftv ooftv-stream
 
 doesn't work but wish it did
