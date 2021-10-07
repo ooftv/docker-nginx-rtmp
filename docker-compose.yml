@@ -11,4 +11,4 @@ services:
             - /etc/letsencrypt:/opt/certs
             - /var/log/ooftv-docker:/var/log
             - /var/www/html:/usr/local/nginx/html
-            - /home/ooftv/Documents/github/ooftv-docker-nginx-rtmp/nginx.conf:/etc/nginx/nginx.conf:ro
+            - /Users/ooftv/Documents/github/ooftv-docker-nginx-rtmp/nginx.conf:/etc/nginx/nginx.conf:ro
